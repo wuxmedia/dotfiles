@@ -1,0 +1,56 @@
+!*.font: -misc-fixed-*-*-*-*-12-90-*-*-*-*-*-*
+*.font: -artwiz-lime-*-*-*-*-*-*-*-*-*-*-*-*
+*.allowBoldFonts: false
+
+URxvt.boldFont:
+
+URxvt*.transparent: true
+! URxvt*.shading: 0 to 99 darkens, 101 to 200 lightens
+URxvt*.shading: 60
+
+URxvt.scrollBar: false
+
+URxvt.perl-ext-common: default,matcher
+URxvt.url-launcher: /usr/bin/chromium
+URxvt.matcher.button: 1
+
+
+!!COLOUR MATRIX.
+!!BY WuX 
+
+*background: #000000
+*foreground: #00FF00
+
+!Black
+*color0:    #002200
+*color8:    #007700
+
+!Red
+*color1:    #C85A00
+*color9:    #8C3F00
+
+!Green
+*color2:    #00EE00
+*color10:   #00AA00
+
+!yellow
+*color3:    #B9BB00
+*color11:   #929400
+
+!blue
+*color4:    #328551
+*color12:   #24613B
+
+!Magenta
+*color5:    #77ff77
+*color13:   #44ff44
+
+!Cyan
+*color6:    #00D1B0
+*color14:   #00A389
+
+!White
+*color7:    #B0FFB0
+*color15:   #7BB27B
+
+
