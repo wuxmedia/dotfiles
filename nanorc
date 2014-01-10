@@ -1,0 +1,88 @@
+# get one line moar!
+set morespace
+# one tab is 4 spaces
+set tabsize 4
+# bold
+set boldtext
+# walk don't run
+set smooth
+# what is a comment?
+syntax "comments" ".*"
+# what calah shall it be?
+color cyan "^#.*"
+# indent cleverly?
+set autoindent
+# backup file creation
+set backup
+## The directory to put unique backup files in.
+set backupdir "/home/wux/.nano/backups/"
+# actually useless: clear the statusbar after single keystroke
+set quickblank
+# wrap long lines softly with this song
+set softwrap
+# pressing home key jumps to line beginning 
+set smarthome
+# Apple ispell ;)
+set speller ispell
+# Line numbers
+set const
+## Convert typed tabs to spaces.
+# set tabstospaces
+## Allow nano to be suspended.
+set suspend
+## Save automatically on exit, don't prompt.
+set tempfile
+## The opening and closing brackets that can be found by bracket
+## searches.  They cannot contain blank characters.  The former set must
+## come before the latter set, and both must be in the same order.
+##
+set matchbrackets "(<[{)>]}"
+## Enable mouse support, if available for your system.  When enabled,
+## mouse clicks can be used to place the cursor, set the mark (with a
+## double click), and execute shortcuts.  The mouse will work in the X
+## Window System, and on the console when gpm is running.
+##
+#set mouse
+
+## inlcudes from the default
+## Nanorc files
+include "/usr/share/nano/nanorc.nanorc"
+## C/C++
+include "/usr/share/nano/c.nanorc"
+## HTML
+include "/usr/share/nano/html.nanorc"
+## TeX
+include "/usr/share/nano/tex.nanorc"
+## Quoted emails (under e.g. mutt)
+include "/usr/share/nano/mutt.nanorc"
+## Patch files
+include "/usr/share/nano/patch.nanorc"
+## Manpages
+include "/usr/share/nano/man.nanorc"
+## Groff
+include "/usr/share/nano/groff.nanorc"
+## Perl
+include "/usr/share/nano/perl.nanorc"
+## Python
+include "/usr/share/nano/python.nanorc"
+## Ruby
+include "/usr/share/nano/ruby.nanorc"
+## Java
+include "/usr/share/nano/java.nanorc"
+## Assembler
+include "/usr/share/nano/asm.nanorc"
+## Bourne shell scripts
+include "/usr/share/nano/sh.nanorc"
+## POV-Ray
+include "/usr/share/nano/pov.nanorc"
+## Cascading Style Sheets
+include "/usr/share/nano/css.nanorc"
+## AWK
+include "/usr/share/nano/awk.nanorc"
+## XML-type files
+include "/usr/share/nano/xml.nanorc"
+## PHP
+include "/usr/share/nano/php.nanorc"
+## Debian files
+include "/usr/share/nano/debian.nanorc"
+
