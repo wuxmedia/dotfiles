@@ -1,0 +1,254 @@
+## dkeg 2013;i3 config file (v4) ##
+## Abused By WuX 21/Oct/2013     ##
+
+# SET MOD KEY
+    set $mod Mod1
+    set $mod4 Mod4	
+
+# SET MODE SWITCH
+#   set Mode_switch $MOD5
+
+#default, floating, tabbed
+#   new container floating 
+
+# TOGGLE FLOATING / TILING
+   bindsym $MOD+SHIFT+t floating toggle
+
+#   new window default border
+    new_window 1pixel  
+    new_float 1pixel
+
+# HIDE EDGE BORDERS
+#   hide_edge_borders <none|vertical|horizontal|both>
+#   hide_edge_borders both 
+
+# font for window titles. ISO 10646 = Unicode
+    font pango:lime 7
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+    floating_modifier $mod
+
+# start a terminal
+   bindsym $mod+Return 		exec x-terminal-emulator
+   bindsym $mod+Shift+Return	exec x-terminal-emulator -e tmux
+
+# Back and Forth
+    workspace_auto_back_and_forth yes
+
+# kill focused window
+    bindsym $mod+q kill
+#   bindsym $mod+Shift+Q kill
+
+# start dmenu (a program launcher)
+    bindsym $mod+F3 exec --no-startup-id dmenu_run 
+
+# CHANGING BORDER STYLE
+    bindsym $mod+t border normal
+    bindsym $mod+y border 1pixel
+    bindsym $mod+u border none
+
+# ASSIGN WORKSPACE VARIABLES
+    set $WS1    term
+    set $WS2    web
+    set $WS3    text
+    set $WS4    media
+    set $WS5    FTP
+    set $WS6    skype
+    set $WS7    seven
+
+########## WINDOW BEHAVIOR ###############
+
+
+#SET ALL WINDOWS AS FLOAT
+#   for_window [class="[.]*"] floating enable 
+
+    for_window 	[class="mplayer2"]                      floating enable
+    for_window 	[class="Nagstamon"]                     floating enable
+    for_window  [class="Roaster"]                       floating enable
+    for_window  [window_role="pop-up"]                  floating enable,move absolute center
+    for_window  [title="Preferences"]                   floating enable
+    for_window  [class="Lxappearance"]                  floating enable
+    for_window  [class="Thunar"]                        floating enable 
+
+########## WINDOW ASSIGNMENTS ##################
+
+#   assign  [instance="chromium browser"]  	 		$WS2
+    assign  [class="mplayer2"]              $WS4
+    assign  [instance="sublime" ]           $WS3
+    assign  [instance="filezilla"]          $WS5
+    assign  [instance="skype"]              $WS6
+    
+    bindsym $MOD+Tab focus right
+
+
+# HANDLE POPUPS
+#   popup_during_fullscreen smart
+
+# change focus
+    bindsym $mod+Left focus left
+    bindsym $mod+Down focus down
+    bindsym $mod+Up focus up
+    bindsym $mod+Right focus right
+
+# move focused window
+    bindsym $mod+Shift+Left move left
+    bindsym $mod+Shift+Down move down
+    bindsym $mod+Shift+Up move up
+    bindsym $mod+Shift+Right move right
+
+# split in horizontal orientation
+    bindsym $mod+h split v
+
+# split in vertical orientation
+    bindsym $mod+v split h
+
+# enter fullscreen mode for the focused container
+    bindsym $mod+f fullscreen
+
+# change container layout (stacked, tabbed, default)
+    bindsym $mod+s layout stacking
+    bindsym $mod+w layout tabbed
+    bindsym $mod+e layout default
+
+# toggle tiling / floating
+    bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+    bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+    bindsym $mod+a focus parent
+
+# focus the child container
+    bindsym $mod+d focus child
+
+# switch to workspace
+    bindsym $mod+1          workspace $WS1
+    bindsym $mod+2          workspace $WS2
+    bindsym $mod+3          workspace $WS3
+    bindsym $mod+4          workspace $WS4
+    bindsym $mod+5          workspace $WS5
+    bindsym $mod+6          workspace $WS6
+    bindsym $mod+7          workspace $WS7
+    bindsym $mod+8          workspace 8
+    bindsym $mod+9          workspace 9
+    bindsym $mod+0          workspace 10:sample name
+
+# move focused container to workspace
+    bindsym $mod+Shift+1    move container to workspace $WS1
+    bindsym $mod+Shift+2    move container to workspace $WS2
+    bindsym $mod+Shift+3    move container to workspace $WS3
+    bindsym $mod+Shift+4    move container to workspace $WS4
+    bindsym $mod+Shift+5    move container to workspace $WS5
+    bindsym $mod+Shift+6    move container to workspace $WS6
+    bindsym $mod+Shift+7    move container to workspace $WS7
+    bindsym $mod+Shift+8    move container to workspace 8
+    bindsym $mod+Shift+9    move container to workspace 9
+    bindsym $mod+Shift+0    move container to workspace 10
+
+# reload the configuration file
+    bindsym $mod+Shift+C reload
+
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+    bindsym $mod+Shift+R restart
+
+# exit i3 (logs you out of your X session)
+     bindsym $mod+Shift+e exec --no-startup-id "i3-nagbar -t warning -m 'Kill i3?.' -b  'Yes, exit i3' 'i3-msg exit'"
+
+# resize window 
+    mode "resize" {
+        bindsym h resize shrink width 10 px or 10 ppt
+        bindsym j resize grow height 10 px or 10 ppt
+        bindsym k resize shrink height 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt 
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+    }
+
+bindsym $mod+r mode "resize"
+
+#EXAMPLE USING THE i3 bar
+# Create Log out, Reboot, Poweroff bindings
+    mode "Exit >> (L)ogout, (X)eboot, (P)oweroff  (C)Reload (R)Restart" {
+        bindsym Mod1+x exec systemctl reboot
+        bindsym Mod1+l exit
+        bindsym Mod1+p exec systemctl poweroff
+        bindsym Mod1+c reload
+        bindsym Mod1+r restart
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default "
+    }
+
+bindsym Mod1+Control+q mode "Exit >> (L)ogout, (X)eboot, (P)oweroff  (C)Reload (R)Restart"
+
+# take screenshot
+
+bindsym Print exec scrot 'Screenshot - %Y-%m-%d--%_$wx$h_scrot.png' -e 'mv $f ~/images/'
+
+##################################
+#  WINDEC           COLOURS    ###
+##################################
+
+# class                      	border    backgr.    text     indicator
+    client.focused	        #00FF00   #00CC00   #000000   #88ff33
+    client.unfocused	        #000000   #001000   #007700   #88ff33	
+    client.focused_inactive 	#000000   #001600   #007700   #88ff33
+    client.urgent	        #383a3b   #383a3b   #ee0000   #88ff33
+
+###  ADDED KEY BINDINGS  ###
+   bindsym $MOD+SHIFT+w        exec --no-startup-id chromium 
+#   bindsym $MOD+SHIFT+s        exec --no-startup-id sublime 
+   bindsym $MOD+SHIFT+f        exec --no-startup-id icedove 
+#   bindsym $MOD+SHIFT+k        exec --no-startup-id koala 
+#   bindsym $MOD+SHIFT+y        exec --no-startup-id thunar
+#    bindsym $MOD+SHIFT+a        exec thunar
+
+# VOLUME ADJUSTMENT
+#    bindsym $MOD4+Up             exec amixer set Master 5.0%+
+#    bindsym $MOD4+Down           exec amixer set Master 5.0%-
+#    bindsym $MOD+F8             exec amixer set Master toggle 
+
+###########-REMOTE MPD CONTROL ###
+
+#    bindsym XF86AudioPlay           exec mpc -h 192.168.0.104 toggle 
+#    bindsym XF86AudioStop           exec mpc -h 192.168.0.104 stop 
+#    bindsym XF86AudioNext           exec mpc -h 192.168.0.104 next 
+#    bindsym XF86AudioLowerVolume    exec mpc -h 192.168.0.104 prev 
+#    bindsym XF86AudioRaiseVolume    exec mpc -h 192.168.0.104 volume -3
+#    bindsym XF86Calculator          exec mpc -h 192.168.0.104 volume +3
+#    bindsym XF86AudioMute           exec mpc -h 192.168.0.104 random
+#    bindsym XF86HomePage            exec notify-send "`mpc -h 192.168.0.104 status`"
+    
+bar 
+{
+	status_command  i3status
+    tray_output     primary
+    position        bottom
+    mode            dock
+
+
+font pango:Source Code Pro 9
+
+##################################
+## Status Bar Line -  Colours  ###
+##################################
+  colors {
+
+        statusline              #44FF33
+        background              #000500
+        separator               #002200
+  
+#  class                              | border  |  background  |   text  |
+#-------------------------------------|---------|--------------|---------|
+    focused_workspace                   #009900      #001000     #00FF00
+    active_workspace                    #009900      #001000     #00FF00
+    inactive_workspace                  #000000      #000000     #00AA00
+    urgent_workspace                    #ff0000      #000000     #000000
+   }
+
+}
+
+
