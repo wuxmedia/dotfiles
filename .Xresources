@@ -1,56 +1,65 @@
-!*.font: -misc-fixed-*-*-*-*-12-90-*-*-*-*-*-*
-*.font: -artwiz-lime-*-*-*-*-*-*-*-*-*-*-*-*
+!XFT fonts and Fix
+*.font: xft:DejaVu Sans Mono :size=8
+URxvt.letterSpace: -2
+
+!Bitmap Fonts
+!*.font: -artwiz-smoothansi-*-*-*-*-*-*-*-*-*-*-*-*
+
 *.allowBoldFonts: false
 
 URxvt.boldFont:
 
-URxvt*.transparent: true
+!fix home - end keys?
+URxvt*termName: rxvt
+
+!URxvt*.transparent: true
 ! URxvt*.shading: 0 to 99 darkens, 101 to 200 lightens
-URxvt*.shading: 60
+!URxvt*.shading: 50
 
 URxvt.scrollBar: false
+URxvt*saveLines: 64000
 
 URxvt.perl-ext-common: default,matcher
 URxvt.url-launcher: /usr/bin/chromium
 URxvt.matcher.button: 1
 
+!!LINK COLOUR
+URxvt.colorUL: #288e9c
 
-!!COLOUR MATRIX.
+!!NumiX Darkest.
 !!BY WuX 
 
-*background: #000000
-*foreground: #00FF00
+*background: #282828
+*foreground: #A2A2A2
 
 !Black
-*color0:    #002200
-*color8:    #007700
+*color0:    #555555
+*color8:    #888888
 
 !Red
-*color1:    #C85A00
-*color9:    #8C3F00
+*color1:    #9C3528
+*color9:    #d64937
 
 !Green
-*color2:    #00EE00
-*color10:   #00AA00
+*color2:    #61BC3B
+*color10:   #86DF5D
 
 !yellow
-*color3:    #B9BB00
-*color11:   #929400
+*color3:    #F3B43A
+*color11:   #FDD75A
 
 !blue
-*color4:    #328551
-*color12:   #24613B
+*color4:    #0D68A8
+*color12:   #0F75BD
 
 !Magenta
-*color5:    #77ff77
-*color13:   #44ff44
+*color5:    #744560
+*color13:   #9E5E83
 
 !Cyan
-*color6:    #00D1B0
-*color14:   #00A389
+*color6:    #288e9c
+*color14:   #37c3d6
 
 !White
-*color7:    #B0FFB0
-*color15:   #7BB27B
-
-
+*color7:    #A2A2A2
+*color15:   #f9f9f9
