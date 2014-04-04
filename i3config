@@ -1,4 +1,4 @@
-## dkeg 2013;i3 config file (v4) ##
+### dkeg 2013;i3 config file (v4) ##
 ## Abused By WuX 21/Oct/2013     ##
 
 # SET MOD KEY
@@ -36,8 +36,9 @@
     workspace_auto_back_and_forth yes
 
 # kill focused window
-    bindsym $mod+q kill
-#   bindsym $mod+Shift+Q kill
+
+#    bindsym $mod+q kill
+    bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
     bindsym $mod+F3 exec --no-startup-id dmenu_run 
@@ -73,10 +74,8 @@
 ########## WINDOW ASSIGNMENTS ##################
 
 #   assign  [instance="chromium browser"]  	 		$WS2
-    assign  [class="mplayer2"]              $WS4
     assign  [instance="sublime" ]           $WS3
     assign  [instance="filezilla"]          $WS5
-    assign  [instance="skype"]              $WS6
     
     bindsym $MOD+Tab focus right
 
@@ -193,18 +192,21 @@ bindsym Print exec scrot 'Screenshot - %Y-%m-%d--%_$wx$h_scrot.png' -e 'mv $f ~/
 ##################################
 
 # class                      	border    backgr.    text     indicator
-    client.focused	        #00FF00   #00CC00   #000000   #88ff33
-    client.unfocused	        #000000   #001000   #007700   #88ff33	
-    client.focused_inactive 	#000000   #001600   #007700   #88ff33
-    client.urgent	        #383a3b   #383a3b   #ee0000   #88ff33
+    client.focused	        	#252525   #9c3528   #252525   #d64937
+    client.unfocused	        #252525   #252525   #9c3528   #d64937
+    client.focused_inactive 	#252525   #252525   #9c3528   #d64937
+    client.urgent	        	#383a3b   #383a3b   #ee0000   #d64937
 
-###  ADDED KEY BINDINGS  ###
+###########################################################################  ADDED KEY BINDINGS  ###
+ 
+ 
    bindsym $MOD+SHIFT+w        exec --no-startup-id chromium 
-#   bindsym $MOD+SHIFT+s        exec --no-startup-id sublime 
-   bindsym $MOD+SHIFT+f        exec --no-startup-id icedove 
-#   bindsym $MOD+SHIFT+k        exec --no-startup-id koala 
-#   bindsym $MOD+SHIFT+y        exec --no-startup-id thunar
-#    bindsym $MOD+SHIFT+a        exec thunar
+   bindsym $MOD+SHIFT+f        exec --no-startup-id filezilla 
+   bindsym $MOD+SHIFT+s        exec --no-startup-id sylpheed 
+
+
+
+
 
 # VOLUME ADJUSTMENT
 #    bindsym $MOD4+Up             exec amixer set Master 5.0%+
@@ -230,25 +232,24 @@ bar
     mode            dock
 
 
-font pango:Source Code Pro 9
+font pango:Deja Vu Sans Mono 8
 
 ##################################
 ## Status Bar Line -  Colours  ###
 ##################################
   colors {
 
-        statusline              #44FF33
-        background              #000500
-        separator               #002200
+        statusline              #f9f9f9
+        background              #252525
+        separator               #292929
   
 #  class                              | border  |  background  |   text  |
 #-------------------------------------|---------|--------------|---------|
-    focused_workspace                   #009900      #001000     #00FF00
-    active_workspace                    #009900      #001000     #00FF00
-    inactive_workspace                  #000000      #000000     #00AA00
-    urgent_workspace                    #ff0000      #000000     #000000
+    focused_workspace                   #282828      #282828     #d64937
+    active_workspace                    #282828      #282828     #F9F9F9
+    inactive_workspace                  #282828      #282828     #A2A2A2
+    urgent_workspace                    #ff0000      #282828     #000000
    }
 
 }
-
 
