@@ -4,5 +4,5 @@
 i3status | while :
  do
   read line
-  echo "`mocp -Q %title` | {`acpi -b | awk '{print $4}' | tr -d ","`] | $line" || exit 1
+  echo "`mocp -Q %title` | $(~/bin/./bat.sh) | tr -d ","`] | $line" || exit 1
  done
