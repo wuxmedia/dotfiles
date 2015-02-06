@@ -22,4 +22,4 @@ fi
 if [[ $CAP == 100 ]]
 then ST=""
 fi
-	echo {$CAP$ST]
+	echo "{$CAP$ST]"
