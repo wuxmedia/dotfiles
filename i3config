@@ -188,7 +188,7 @@ bindsym Print exec scrot 'Screenshot-%Y-%m-%d--%_$wx$h_scrot.png' -e 'mv $f ~/im
 # class                      	border    backgr.    text     indicator
     client.focused	       	#f52525   #9c3528   #252525   #d64937
     client.unfocused	        #f02020   #2f2525   #9c3528   #d64937
-    client.focused_inactive 	#2f2525   #2f2525   #9c3528   #d64937
+    client.focused_inactive 	#191919   #191919   #9c3528   #d64937
     client.urgent	       	#383a3b   #383a3b   #ee0000   #d64937
 
 #####################################################  ADDED KEY BINDINGS  ###
