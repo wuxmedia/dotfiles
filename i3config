@@ -18,26 +18,32 @@
     new_window 1pixel  
     new_float 1pixel
 
+###################################
+## Start UP stuff:
+
+   exec_always--no-startup-id hsetroot -solid #2a2a2a
+
+#### Mouse
+#mouse_warping none
+
 # HIDE EDGE BORDERS
 #   hide_edge_borders <none|vertical|horizontal|both>
-#   hide_edge_borders both 
+   hide_edge_borders both
 
 # font for window titles. ISO 10646 = Unicode
-    font pango:lime 7
+    font pango:Ubuntu Mono 8
 
 # Use Mouse+$mod to drag floating windows to their wanted position
     floating_modifier $mod
 
 # start a terminal
-   bindsym $mod+Return 		exec x-terminal-emulator
-   bindsym $mod+Shift+Return	exec x-terminal-emulator -e tmux
+   bindsym $mod+Return 		exec xfce4-terminal
+#   bindsym $mod+Shift+Return	exec x-terminal-emulator -e tmux
 
 # Back and Forth
     workspace_auto_back_and_forth yes
 
 # kill focused window
-
-#    bindsym $mod+q kill
     bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
@@ -60,13 +66,17 @@
 ########## WINDOW BEHAVIOR ###############
 
 
-#SET ALL WINDOWS AS FLOAT
+# SET ALL  WINDOWS AS FLOAT
 #   for_window [class="[.]*"] floating enable 
+    
+# Just set some floaters:
 
+    for_window  [class="Xfce4-notifyd"] floating enable
     for_window 	[class="mplayer2"]                      floating enable
     for_window 	[class="Nagstamon"]                     floating enable
     for_window  [class="Roaster"]                       floating enable
     for_window  [window_role="pop-up"]                  floating enable,move absolute center
+    for_window  [class="XTerm"]                  floating enable,move absolute center
     for_window  [title="Preferences"]                   floating enable
     for_window  [class="Lxappearance"]                  floating enable
     for_window  [class="Thunar"]                        floating enable 
@@ -74,14 +84,14 @@
 ########## WINDOW ASSIGNMENTS ##################
 
 #   assign  [instance="chromium browser"]  	 		$WS2
-    assign  [instance="sublime" ]           $WS3
-    assign  [instance="filezilla"]          $WS5
+#    assign  [instance="sublime" ]           $WS3
+#    assign  [instance="filezilla"]          $WS5
     
     bindsym $MOD+Tab focus right
 
 
 # HANDLE POPUPS
-#   popup_during_fullscreen smart
+   popup_during_fullscreen smart
 
 # change focus
     bindsym $mod+Left focus left
@@ -167,87 +177,49 @@
 
 bindsym $mod+r mode "resize"
 
-#EXAMPLE USING THE i3 bar
-# Create Log out, Reboot, Poweroff bindings
-    mode "Exit >> (L)ogout, (X)eboot, (P)oweroff  (C)Reload (R)Restart" {
-        bindsym Mod1+x exec systemctl reboot
-        bindsym Mod1+l exit
-        bindsym Mod1+p exec systemctl poweroff
-        bindsym Mod1+c reload
-        bindsym Mod1+r restart
-
-        # back to normal: Enter or Escape
-        bindsym Return mode "default"
-        bindsym Escape mode "default "
-    }
-
-bindsym Mod1+Control+q mode "Exit >> (L)ogout, (X)eboot, (P)oweroff  (C)Reload (R)Restart"
-
 # take screenshot
 
-bindsym Print exec scrot 'Screenshot - %Y-%m-%d--%_$wx$h_scrot.png' -e 'mv $f ~/images/'
+bindsym Print exec scrot 'Screenshot-%Y-%m-%d--%_$wx$h_scrot.png' -e 'mv $f ~/images/'
 
 ##################################
 #  WINDEC           COLOURS    ###
 ##################################
 
 # class                      	border    backgr.    text     indicator
-    client.focused	        	#252525   #9c3528   #252525   #d64937
-    client.unfocused	        #252525   #252525   #9c3528   #d64937
-    client.focused_inactive 	#252525   #252525   #9c3528   #d64937
-    client.urgent	        	#383a3b   #383a3b   #ee0000   #d64937
+    client.focused	       	#f52525   #9c3528   #252525   #d64937
+    client.unfocused	        #f02020   #2f2525   #9c3528   #d64937
+    client.focused_inactive 	#2f2525   #2f2525   #9c3528   #d64937
+    client.urgent	       	#383a3b   #383a3b   #ee0000   #d64937
 
-###########################################################################  ADDED KEY BINDINGS  ###
+#####################################################  ADDED KEY BINDINGS  ###
  
- 
-   bindsym $MOD+SHIFT+w        exec --no-startup-id chromium 
-   bindsym $MOD+SHIFT+f        exec --no-startup-id filezilla 
-   bindsym $MOD+SHIFT+s        exec --no-startup-id sylpheed 
-
-
-
-
-
-# VOLUME ADJUSTMENT
-#    bindsym $MOD4+Up             exec amixer set Master 5.0%+
-#    bindsym $MOD4+Down           exec amixer set Master 5.0%-
-#    bindsym $MOD+F8             exec amixer set Master toggle 
-
-###########-REMOTE MPD CONTROL ###
-
-#    bindsym XF86AudioPlay           exec mpc -h 192.168.0.104 toggle 
-#    bindsym XF86AudioStop           exec mpc -h 192.168.0.104 stop 
-#    bindsym XF86AudioNext           exec mpc -h 192.168.0.104 next 
-#    bindsym XF86AudioLowerVolume    exec mpc -h 192.168.0.104 prev 
-#    bindsym XF86AudioRaiseVolume    exec mpc -h 192.168.0.104 volume -3
-#    bindsym XF86Calculator          exec mpc -h 192.168.0.104 volume +3
-#    bindsym XF86AudioMute           exec mpc -h 192.168.0.104 random
-#    bindsym XF86HomePage            exec notify-send "`mpc -h 192.168.0.104 status`"
-    
 bar 
 {
-	status_command  i3status
-    tray_output     primary
+    output          HDMI-0
+    status_command  i3status
+    tray_output     HDMI-0
     position        bottom
     mode            dock
 
-
-font pango:Deja Vu Sans Mono 8
+    font pango:Ubuntu Mono 10
+    
+    workspace_buttons yes
 
 ##################################
 ## Status Bar Line -  Colours  ###
 ##################################
-  colors {
+ 
+ colors {
 
         statusline              #f9f9f9
-        background              #252525
-        separator               #292929
+        background              #2a2a2a
+        separator               #111111
   
 #  class                              | border  |  background  |   text  |
 #-------------------------------------|---------|--------------|---------|
-    focused_workspace                   #282828      #282828     #d64937
-    active_workspace                    #282828      #282828     #F9F9F9
-    inactive_workspace                  #282828      #282828     #A2A2A2
+    focused_workspace                   #252525      #252525     #d64937
+    active_workspace                    #252525      #252525     #F9F9F9
+    inactive_workspace                  #282828      #282828     #555555
     urgent_workspace                    #ff0000      #282828     #000000
    }
 
