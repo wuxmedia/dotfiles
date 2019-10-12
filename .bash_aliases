@@ -69,3 +69,14 @@ alias manb='man -H'
 ###### Unique to me -
 
 alias fclist='fc-list | cut -d : -f 2 | sort -u | uniq'
+
+alias furball='mosh tdh@80.87.128.222 --ssh="ssh -p 2222 -i /home/wux/.ssh/id_rsa-furball"'
+alias eggburt='mosh tdh@eggburt.positive-internet.com --ssh="ssh -i /home/wux/.ssh/id_rsa-furball"'
+alias proxy='killall ssh ; ssh -i /home/wux/.ssh/id_rsa-furball -4 -fND 9999 tdh@80.87.128.17'
+alias cs="~/cs/cs.sh"
+function beeb () {
+  killall remmina ; remmina -ic /home/wux/.remmina/1567757499440.remmina 2>/dev/null &
+}
+alias bw='pwgen -Bs 10 1'
+alias mm="google-chrome --app=https://comms.positive-internet.com"
+alias mtv="sshfs  root@wux.ddns.net:/mnt/media/TV/ ~/TV/ ; sshfs  root@wux.ddns.net:/mnt/media/Movies/ ~/Movies/"
