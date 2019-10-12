@@ -17,7 +17,7 @@
 
 ###################################
 ## Start UP stuff:
-exec --no-startup-id redshift -l 52.8:1.2 -t 6500:2000  -v -b 1:0.6
+exec --no-startup-id redshift -l 52.8:1.2 -t 6500:2500
 exec_always --no-startup-id setxkbmap -layout gb 
 exec_always --no-startup-id setxkbmap -option ctrl:nocaps
 
