@@ -21,7 +21,7 @@ exec --no-startup-id redshift -l 52.8:1.2 -t 6500:2500
 exec_always --no-startup-id setxkbmap -layout gb 
 exec_always --no-startup-id setxkbmap -option ctrl:nocaps
 
-exec_always --no-startup-id synclient TapButton1=1
+exec_always --no-startup-id synclient TapButton1=0
 exec_always --no-startup-id synclient TapButton2=3 
 exec_always --no-startup-id synclient TouchpadOff=0
 ## 3 finger middle click :D
@@ -31,12 +31,12 @@ exec_always --no-startup-id synclient PalmMinWidth=5
 exec_always --no-startup-id synclient PalmMinZ=100
  
 # NetworkManager bloat
-exec_always --no-startup-id nm-applet
-exec_always --no-startup-id hsetroot -cover /home/wux/Downloads/Grey1-Abstract-Wallpaper-04-1920x1200.jpg 
-
-#hsetroot -solid "#2a2a2a" #/home/wux/Pictures/paper.jpg
+#exec_always --no-startup-id nm-applet
+#exec_always --no-startup-id hsetroot -solid '#EEEEEE'
+#exec_always --no-startup-id hsetroot -cover ~/pictures/Grey1-Abstract-Wallpaper-04-1920x1200.jpg 
+exec_always --no-startup-id hsetroot -cover ~/pictures/greyforest.jpg -brightness .2
 #exec_always --no-startup-id /home/wux/bin/touch
-exec_always --no-startup-id /home/wux/bin/low-bat.sh
+exec_always --no-startup-id /home/tdh/bin/low-bat.sh
 exec --no-startup-id compton --config ~/.config/compton.conf
 exec --no-startup-id dunst
 
@@ -65,28 +65,24 @@ font pango:Source Code Pro Medium 10
 floating_modifier $mod
 
 # lcd brightness thinkpad
-bindsym XF86MonBrightnessDown exec /home/wux/bin/ldown.sh 
-bindsym XF86MonBrightnessUp exec /home/wux/bin/lup.sh 
+bindsym XF86MonBrightnessDown exec ~/bin/ldown.sh 
+bindsym XF86MonBrightnessUp exec ~/bin/lup.sh
+
+bindsym Print exec flameshot gui
 
 # Volume
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set Master 10%+ #increase sound volume
 bindsym XF86AudioLowerVolume exec --no-startup-id amixer set Master 10%- #decrease sound volume
 bindsym XF86AudioMute exec --no-startup-id amixer set Master toggle # toggle mute sound
-bindsym XF86ScreenSaver exec --no-startup-id i3lock --color=2a2a2a -i /home/wux/Pictures/hollinlaptop.png
-
-#sunshine mode!
-#bindsym  XF86Launch1 exec --no-startup-id xcalib -invert -alter
+bindsym XF86ScreenSaver exec --no-startup-id i3lock --color=2a2a2a -i ~/pictures/greyforest.jpg 
 
 # screen blanka
 bindsym  XF86Launch1 exec --no-startup-id xset dpms force off 
 
-exec xautolock -time 5 -locker 'i3lock --color=2a2a2a -i /home/wux/Pictures/hollinlaptop.png' -corners +-00 -cornerdelay 4 -cornerredelay 4 &
+exec xautolock -time 5 -locker 'i3lock --color=2a2a2a -i /home/tdh/pictures/greyforest.jpg' -corners +-00 -cornerdelay 4 -cornerredelay 4 &
 
-bindsym Print exec --no-startup-id /usr/bin/xfce4-screenshooter
 #   start a terminal
 #   bindsym $mod+Return 		exec urxvt
-#   bindsym $mod+Shift+Return	exec x-terminal-emulator -e tmux
-#   bindsym $mod+Return 		exec gnome-terminal
     bindsym $mod+Return 		exec xfce4-terminal
 
 # Back and Forth
@@ -117,11 +113,10 @@ bindsym $mod+F3 exec --no-startup-id i3-dmenu-desktop --dmenu="dmenu -nb '#2a2a2
 #   for_window [class="[.]*"] floating enable 
     
 # Just set some floaters:
-for_window  [class="Xfce4-notifyd"]     floating enable
+#for_window  [class="Xfce4-notifyd"]     floating enable
 for_window  [class="mplayer2"]          floating enable
 for_window  [class="vlc"]               floating enable
 for_window  [class="Transmission"]      floating enable
-for_window  [class="nagstamon"]         floating enable
 for_window  [window_role="pop-up"]      floating enable,move absolute center
 for_window  [class="XTerm"]             floating enable,move absolute center
 for_window  [title="Preferences"]       floating enable
@@ -132,14 +127,13 @@ for_window  [class="Mousepad"]          floating enable
 for_window  [class="Pavucontrol"]       floating enable
 for_window  [class="Arandr"]            floating enable
 for_window  [class="zoom"]              floating enable
-for_window  [class="Remmina"]           floating enable
+#for_window  [class="Remmina"]           floating enable
 for_window  [class="VirtualBox Machine"] floating enable
 for_window  [class="VirtualBox Manager"] floating enable
 for_window  [class="Document Print Status (my jobs)"] floating enable
 
 ########## WINDOW ASSIGNMENTS ##################
 
-#    assign  [instance="filezilla"]          $WS5
     bindsym $MOD+Tab focus right
 # HANDLE POPUPS
    popup_during_fullscreen smart
@@ -217,36 +211,30 @@ for_window  [class="Document Print Status (my jobs)"] floating enable
 
 #bindsym $mod+r mode "resize"
 
-
 ##################################
 #  WINDEC           COLOURS    ###
 ##################################
-
-# class                      	border    backgr.    text     indicator
-    client.focused	       	    #333333   #2f2f2f   #f1f1f1   #d64937
-    client.unfocused	        #1b1b1b   #2a2a2a   #999999
-    client.focused_inactive 	#1b1b1b   #444444   #aaaaaa
-    client.urgent	        	#d64937   #444444   #000000   #d64937
-
+    # class                    	border    bckgrnd   text     indicator
+    client.focused	        #333333   #2f2f2f   #ff4937   #ff5842
+    client.unfocused	        #050505   #2a2a2a   #888888
+    client.focused_inactive 	#1b1b1b   #2a2a2a   #a12816
+    client.urgent	       	#d64937   #444444   #000000   #d64937
 
 bar 
 {
     output          LVDS1
-    status_command  /home/wux/bin/bar.sh 
+    status_command  /home/tdh/bin/bar.sh 
     tray_output     LVDS1
     position        bottom
     mode            dock
-
     font pango:Source Code Pro Medium 10
-    #font pango:Hack 10
     workspace_buttons yes
 
 ##################################
 ## Status Bar Line -  Colours  ###
 ##################################
  
- colors {
-
+colors {
         statusline              #f9f9f9
         background              #101010
         separator               #111111
