@@ -92,7 +92,7 @@ workspace_auto_back_and_forth yes
 bindsym $mod+Shift+q kill
 
 # start pretty dmenu (a program launcher)
-bindsym $mod+F3 exec --no-startup-id i3-dmenu-desktop --dmenu="dmenu -nb '#2a2a2a' -nf '#ffffff' -sb '#d64937' -fn '-*-courier-medium-r-*--18-*-*-*-*-*-*-*'" 
+bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu="dmenu -nb '#2a2a2a' -nf '#ffffff' -sb '#d64937' -fn '-*-courier-medium-r-*--18-*-*-*-*-*-*-*'" 
 
 # CHANGING BORDER STYLE
     bindsym $mod+t border normal
@@ -174,7 +174,7 @@ for_window  [class="Document Print Status (my jobs)"] floating enable
     bindsym $mod+a focus parent
 
 # focus the child container
-    bindsym $mod+d focus child
+#    bindsym $mod+d focus child
 
 # switch to workspace
     bindsym $mod+1          workspace $WS1
