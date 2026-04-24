@@ -15,11 +15,11 @@ CAP=$(cat $DIR/capacity)
 STATE=$(cat $DIR/status)
 # Charging or What??
 if [[ $STATE  == D* ]]
-then ST="-"
+then ST="~"
 else ST="+"
 fi
 
 if [[ $CAP == 100 ]]
 then ST=""
 fi
-	echo "{$CAP$ST]"
+echo "{$CAP$ST] $(acpi -b | cut -d " " -f5 | cut -d ":" -f1,2)"
