@@ -1,0 +1,38 @@
+[global]
+    font = Source Code Pro
+    transparency = 10
+    word_wrap = yes
+    padding = 8
+    horizontal_padding = 8
+    geometry = "300x0-50+100"
+    markup = full
+alignment = center
+    format = "<b>%s</b>\n%b"
+    #format = "%a: %s\n%b"
+    sort = yes
+    indicate_hidden = no
+    modifier = ctrl
+    key = space
+    history_key = grave
+    idle_threshold = 120
+
+[urgency_low]
+    # IMPORTANT: colors have to be defined in quotation marks.
+    # Otherwise the '#' and following  would be interpreted as a comment.
+    background = "#2a2a2a"
+    foreground = "#d3d3d3"
+    timeout = 10 
+
+[urgency_normal]
+    background = "#282828"
+    foreground = "#F2F2F2"
+    timeout = 10 
+
+[urgency_critical]
+    foreground = "#252525"
+    background = "#d64937"
+    timeout = 20
+
+[frame]
+    width = 3
+    color = "#d64937"
